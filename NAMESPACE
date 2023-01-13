@@ -2,3 +2,6 @@ exportPattern("^[[:alpha:]]+")
 
 export(get.ft.data.url)
 export(ft.retrieve)
+export()
+
+exportPattern("^data\\.rda$")
