@@ -114,7 +114,7 @@ retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FA
 
         response <- httr::GET(scraper.urls[i])
         json <- jsonlite::fromJSON(rawToChar(response$content))
-        results[[i]] <- as.data.frame(json) %>% as_tibble()
+        results[[i]] <- as.data.frame(json) %>% dplyr::as_tibble()
         setTxtProgressBar(pb, i)
 
       }
