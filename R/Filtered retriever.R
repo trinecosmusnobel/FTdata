@@ -44,7 +44,7 @@ retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FA
 
       base.content <- httr::GET(URLencode(base.url))
       content <- content(base.content)
-      results <- fromJSON(rawToChar(response$content)) %>% bind_rows()
+      results <- jsonlite::fromJSON(rawToChar(response$content)) %>% bind_rows()
 
       results
 
@@ -111,7 +111,7 @@ retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FA
       for (i in seq(scraper.urls)) {
 
         response <- httr::GET(scraper.urls[i])
-        json <- fromJSON(rawToChar(response$content))
+        json <- jsonlite::fromJSON(rawToChar(response$content))
         results[[i]] <- as.data.frame(json) %>% as_tibble()
         setTxtProgressBar(pb, i)
 
