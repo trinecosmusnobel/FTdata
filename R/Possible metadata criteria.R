@@ -11,7 +11,7 @@ possible.meta <- list()
 
 for (i in seq(FT_Types$URL.prefix)) {
 
-  response <- GET(paste0("https://oda.ft.dk/API/", (FT_Types$URL.prefix[i])))
+  response <- httr::GET(paste0("https://oda.ft.dk/API/", (FT_Types$URL.prefix[i])))
   df <- fromJSON(rawToChar(response$content))$value %>% as_tibble()
 
   possible.meta[[i]] <- colnames(df)
