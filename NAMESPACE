@@ -1,2 +1,4 @@
 exportPattern("^[[:alpha:]]+")
-importFrom(dplyr, httr, jsonlite)
+
+export(get.ft.data.url)
+export(ft.retrieve)
