@@ -1,5 +1,7 @@
 ft.retrieve <- function(search.type, sequence.size = 100, exact.match = FALSE, ...) {
-
+  library(httr)
+  library(dplyr)
+  library(jsonlite)
   args <- list(...)
 
   if (length(args) > 0) {

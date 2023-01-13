@@ -1,6 +1,8 @@
 retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FALSE, ...) {
 
   library(httr)
+  library(dplyr)
+  library(jsonlite)
 
   search.type <- tolower(search.type)       #convert type to lower
 
