@@ -1,3 +1,5 @@
+importFrom(magrittr,"%>%")
+
 exportPattern("^[[:alpha:]]+")
 
 export(get.ft.data.url)
