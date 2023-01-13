@@ -4,7 +4,7 @@ get.ft.data.url <- function(type) {
   library(dplyr)
   library(jsonlite)
 
-  prefix <- FT_Types %>% mutate(Type = tolower(Type)) %>% filter(Type == tolower(type)) %>% pull(URL.prefix)
+  prefix <- FT_Types %>% dplyr::mutate(Type = tolower(Type)) %>% dplyr::filter(Type == tolower(type)) %>% dplyr::pull(URL.prefix)
   base_url <- paste0("http://oda.ft.dk/api/", prefix, "?$inlinecount=allpages")
   base_url
 

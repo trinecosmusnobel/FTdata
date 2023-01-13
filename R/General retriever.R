@@ -14,7 +14,7 @@ ft.retrieve <- function(search.type, sequence.size = 100, exact.match = FALSE, .
     base.url          <- get.ft.data.url(search.type)
     base.content      <- httr::GET(URLencode(base.url))
 
-    content           <- content(base.content)
+    content           <- httr::content(base.content)
     entry.n           <- as.numeric(content$odata.count)
 
     sequences         <- seq(from = 0, to = ceiling(entry.n), by = sequence.size)
@@ -28,12 +28,12 @@ ft.retrieve <- function(search.type, sequence.size = 100, exact.match = FALSE, .
 
       response <- httr::GET(scraper.urls[i])
       json <- jsonlite::fromJSON(rawToChar(response$content))
-      results[[i]] <- as.data.frame(json) %>% as_tibble()
+      results[[i]] <- as.data.frame(json) %>% dplyr::as_tibble()
       setTxtProgressBar(pb, i)
 
     }
 
-    results <- results %>% bind_rows()
+    results <- results %>% dplyr::bind_rows()
 
     results
 
