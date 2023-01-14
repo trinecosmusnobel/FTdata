@@ -1,9 +1,3 @@
----
-output: github_document
----
-
-
-
 # FTdata
 
 Wrapper to use for the Danish Parliaments open data API.
