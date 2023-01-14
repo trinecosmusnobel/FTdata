@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "README"
 output: github_document
 ---
 
@@ -22,13 +22,16 @@ devtools::install_github("trinecosmusnobel/FTdata")
 
 ## Example
 
-The code below retrieves all data of type "debat".
+Retrieve all data of type "debat".
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
 ft.retrieve(search.type = "debat")
 ```
 
+Retrieve all data of type "aktør" where first name includes "mette".
 
-
-
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+retrieve_filtered(search.type = "aktør", fornavn = "mette")
+```
