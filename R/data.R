@@ -3,3 +3,9 @@
 #' @format A named list
 #'
 "possible.meta"
+
+#' Types of data
+#'
+#' @format A named list
+#'
+"FT_Types"
