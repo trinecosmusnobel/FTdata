@@ -70,8 +70,6 @@ retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FA
 
       if (exact.match == FALSE) {
 
-        if (exact.match == FALSE) {
-
           if (is.numeric(filter.value) == TRUE) {
             base.url <- paste0(base.url, "&$filter=", paste0("substringof(", filter.value, ",", filter.type, ") eq true"))
           }
@@ -80,18 +78,15 @@ retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FA
             base.url <- paste0(base.url, "&$filter=", paste0("substringof('", filter.value, "',", filter.type, ") eq true"))
           }
 
-        }
-
-
-
-
-        }
+      }
 
       tryCatch({
         base.url <- URLencode(base.url)
       }, error = function(e) {
         base.url <- base.url
       })
+
+      base.url <- gsub(" ", "%20", base.url)
 
       base.content <- httr::GET(base.url)
       content <- httr::content(base.content)

@@ -22,9 +22,12 @@ devtools::install_github("trinecosmusnobel/FTdata")
 
 ## Example
 
-The code below retrieves 
+The code below retrieves all data of type "debat".
 
-
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+ft.retrieve(search.type = "debat")
+```
 
 
 
