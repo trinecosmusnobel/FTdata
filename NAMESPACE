@@ -1,9 +1,9 @@
 importFrom(magrittr,"%>%")
 
 exportPattern("^[[:alpha:]]+")
+exportPattern("^data\\.rda$")
 
 export(get.ft.data.url)
+export(retrieve_filtered)
 export(ft.retrieve)
-
-exportPattern("^data\\.rda$")
 
