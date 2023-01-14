@@ -6,6 +6,6 @@
 
 #' Types of data
 #'
-#' @format A named list
+#' @format A tibble
 #'
 "FT_Types"
