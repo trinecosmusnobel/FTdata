@@ -6,3 +6,4 @@ export(get.ft.data.url)
 export(ft.retrieve)
 
 exportPattern("^data\\.rda$")
+
