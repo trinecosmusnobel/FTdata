@@ -41,7 +41,7 @@ retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FA
       base.url <- paste0("https://oda.ft.dk/api/", stringr::str_to_title(search.type), "(", filter.value, ")")
 
       base.content <- httr::GET(URLencode(base.url))
-      content <- content(base.content)
+      content <- httr::content(base.content)
       results <- jsonlite::fromJSON(rawToChar(response$content)) %>% bind_rows()
 
       results
@@ -94,7 +94,7 @@ retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FA
       })
 
       base.content <- httr::GET(base.url)
-      content <- content(base.content)
+      content <- httr::content(base.content)
       entry.n <- as.numeric(content$odata.count) #number of total entries
 
       sequences <- seq(from = 0, to = ceiling(entry.n), by = sequence.size)
