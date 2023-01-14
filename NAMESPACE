@@ -1,3 +1,2 @@
 importFrom(magrittr,"%>%")
 export(ft.retrieve)
-export(FT_Types)
