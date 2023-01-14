@@ -2,6 +2,10 @@
 
 #' Gets a base URL for FT api
 #'
+#' @title Test
+#'
+#' @return
+#'
 
 get.ft.data.url <- function(type) {
 
