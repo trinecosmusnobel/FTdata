@@ -60,7 +60,7 @@ retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FA
 
       base.content <- httr::GET(URLencode(base.url))
       content <- httr::content(base.content)
-      results <- jsonlite::fromJSON(rawToChar(response$content)) %>% bind_rows()
+      results <- jsonlite::fromJSON(rawToChar(response$content)) %>% dplyr::bind_rows()
 
       results
 
@@ -128,7 +128,7 @@ retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FA
 
       }
 
-      results <- results %>% bind_rows()
+      results <- results %>% dplyr::bind_rows()
 
       #### RETURN RESULTS
       results
