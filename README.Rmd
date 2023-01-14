@@ -24,7 +24,7 @@ devtools::install_github("trinecosmusnobel/FTdata")
 
 ## Examples
 
-```{r examples}
+```{r examples, eval = FALSE}
 # install.packages("devtools")
 library(FTdata) #Load package
 
