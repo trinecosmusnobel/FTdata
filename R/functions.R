@@ -16,7 +16,7 @@ get.ft.data.url <- function(type) {
 #' Retrieves filtered results
 #'
 
-retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FALSE, ...) {
+retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FALSE, max.count, ...) {
 
   search.type <- tolower(search.type)       #convert type to lower
 
@@ -110,6 +110,10 @@ retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FA
       content <- httr::content(base.content)
       entry.n <- as.numeric(content$odata.count) #number of total entries
 
+      if (!is.null(max.count)) {
+        entry.n <- max.count
+      }
+
       sequences <- seq(from = 0, to = ceiling(entry.n), by = sequence.size)
       scraper.urls <- URLencode(paste0(base.url, "&$skip=", sequences))
 
@@ -143,7 +147,7 @@ retrieve_filtered <- function(search.type, sequence.size = 100, exact.match = FA
 #' General function
 #'
 
-ft.retrieve <- function(search.type, sequence.size = 100, exact.match = FALSE, ...) {
+ft.retrieve <- function(search.type, sequence.size = 100, exact.match = FALSE, max.count, ...) {
 
   args <- list(...)
 
@@ -159,6 +163,10 @@ ft.retrieve <- function(search.type, sequence.size = 100, exact.match = FALSE, .
 
     content           <- httr::content(base.content)
     entry.n           <- as.numeric(content$odata.count)
+
+    if (!is.null(max.count)) {
+      entry.n <- max.count
+    }
 
     sequences         <- seq(from = 0, to = ceiling(entry.n), by = sequence.size)
     scraper.urls      <- URLencode(paste0(base.url, "&$skip=", sequences))
